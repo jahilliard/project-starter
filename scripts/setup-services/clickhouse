@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd "$(dirname "$0")/.."
+
+# See if clickhouse is up
+clickhouse-client --query 'SELECT 1;'
+if [ $? -ne 0 ]; then
+  sudo clickhouse start
+fi
+
+

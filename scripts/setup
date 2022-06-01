@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cd "$(dirname "$0")/.."
+
+# Make sure homebrew is setup
+# brew || eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Install all the node dependencies
+yarn
+
+# Now we have everything we need to start booting things
+# yarn setup
+
+# Setup secondary services like kafka, clickhouse, etc
+yarn setup:services
+
+# Start running the dev server
+# echo "Run yarn dev to get started!"
